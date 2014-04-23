@@ -1,0 +1,25 @@
+{
+  "name": "fizz",
+  "version": "0.0.3",
+  "description": "Allows for snarky answers to generic interview questions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SomeKittens/FizzBuzz.git"
+  },
+  "keywords": [
+    "fizz",
+    "buzz",
+    "fizzbuzz",
+    "snark"
+  ],
+  "author": "Randall Koutnik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SomeKittens/FizzBuzz/issues"
+  },
+  "homepage": "https://github.com/SomeKittens/FizzBuzz"
+}
