@@ -12,8 +12,16 @@ if (arg) {
   }
 }
 
+/**
+ * Runs through FizzBuzz for n integers using an iterative method
+ * Output is sent to the console
+ * @param  {integer} n The number to count to 
+ */
 var fizzBuzz = function(n) {
-  for (var i = 1; i < n; i++) {
+  if (n < 1) { 
+    return console.error('Invalid arguments, expected integer greater than zero');
+  }
+  for (var i = 1; i <= n; i++) {
     if (!(i % 15)) {
       console.log('FizzBuzz');
       continue;
