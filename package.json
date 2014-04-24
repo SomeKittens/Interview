@@ -1,8 +1,13 @@
 {
   "name": "interview",
-  "version": "0.0.3",
-  "description": "Allows for snarky answers to generic interview questions",
-  "main": "index.js",
+  "version": "0.0.4",
+  "description": "A series of command line tools for snarky answers to generic interview questions",
+  "main": "bin/fizzbuzz",
+  "bin": {
+    "fizz": "bin/fizzbuzz",
+    "fizzbuzz": "bin/fizzbuzz"
+  },
+  "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +21,7 @@
     "fizzbuzz",
     "snark"
   ],
-  "author": "Randall Koutnik",
+  "author": "Randall Koutnik <rkoutnik@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SomeKittens/FizzBuzz/issues"

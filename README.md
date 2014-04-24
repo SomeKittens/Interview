@@ -1,1 +1,1 @@
-For snarky answers when asked to prove I can code.
+For snarky answers to generic interview questions
