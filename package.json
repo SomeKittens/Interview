@@ -1,5 +1,5 @@
 {
-  "name": "fizz",
+  "name": "interview",
   "version": "0.0.3",
   "description": "Allows for snarky answers to generic interview questions",
   "main": "index.js",
