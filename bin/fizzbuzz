@@ -2,8 +2,16 @@
 
 'use strict';
 
+var program = require('commander')
+  , version = require('../package.json').version;
+
+program
+  .version(version)
+  .option('-n, --number', 'Number to count to', Number)
+  .parse(process.argv);
+
 var buzzToFizz = 100
-  , arg = Number(process.argv[2]);
+  , arg = program.number;
 
 if (arg) {
   if(!isNaN(arg)) {
