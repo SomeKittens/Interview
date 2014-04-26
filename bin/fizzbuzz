@@ -7,19 +7,17 @@ var program = require('commander')
 
 program
   .version(version)
-  .option('-n, --number', 'Number to count to', Number)
+  .option('-s, --start <number>', 'Number to start with, defaults to 1', Number)
+  .option('-e, --end <number>', 'Number to count to, defaults to 100', Number)
   .parse(process.argv);
 
 var buzzToFizz = 100
-  , arg = program.number;
+  , s = program.start || 1
+  , e = program.end || 100;
 
-if (arg) {
-  if(!isNaN(arg)) {
-    buzzToFizz = arg;
-  } else {
-    console.error('Invalid arguments, expected number');
-    process.exit();
-  }
+if(isNaN(s) || isNaN(e)) {
+  console.error('Invalid arguments, expected number');
+  process.exit(1);
 }
 
 /**
@@ -27,23 +25,22 @@ if (arg) {
  * Output is sent to the console
  * @param  {integer} n The number to count to 
  */
-var fizzBuzz = function(n) {
-  if (n < 1) { 
-    return console.error('Invalid arguments, expected integer greater than zero');
+if (e < s) { 
+  console.error('Invalid arguments, expected start number greater than end');
+  console.error('start: ' + s);
+  console.error('end: ' + e);
+  process.exit(1);
+}
+for (var i = s; i <= e; i++) {
+  if (!(i % 15)) {
+    console.log('FizzBuzz');
+    continue;
+  } else if (!(i % 3)) {
+    console.log('Fizz');
+    continue;
+  } else if (!(i % 5)) {
+    console.log('Buzz');
+    continue;
   }
-  for (var i = 1; i <= n; i++) {
-    if (!(i % 15)) {
-      console.log('FizzBuzz');
-      continue;
-    } else if (!(i % 3)) {
-      console.log('Fizz');
-      continue;
-    } else if (!(i % 5)) {
-      console.log('Buzz');
-      continue;
-    }
-    console.log(i);
-  }
-};
-
-fizzBuzz(buzzToFizz);
+  console.log(i);
+}
