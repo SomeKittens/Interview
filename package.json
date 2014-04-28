@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/SomeKittens/Interview",
   "dependencies": {
-    "commander": "^2.2.0"
+    "commander": "^2.2.0",
+    "semver": "~2.2.1"
   }
 }
