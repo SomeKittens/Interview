@@ -12,18 +12,22 @@ program
   .option('-e, --end <number>', 'Number to count to, defaults to 100', Number)
   .parse(process.argv);
 
-if(isNaN(s) || isNaN(e)) {
-  console.error('Invalid arguments, expected number');
-  console.error('start: ' + program.start);
-  console.error('end: ' + program.end);
+if(isNaN(program.start)) {
+  console.error('Invalid arguments, expected starting number');
+  console.error('found: ' + program.start);
+  process.exit(1);
+}
+if(isNaN(program.end)) {
+  console.error('Invalid arguments, expected ending number');
+  console.error('found: ' + program.end);
   process.exit(1);
 }
 
-var buzzToFizz = 100
-  , s = program.start || 1
+
+var s = program.start || 1
   , e = program.end || 100;
 
-if (e <= s) { 
+if (e <= s) {
   console.error('Invalid arguments, expected start number greater than end');
   console.error('start: ' + s);
   console.error('end: ' + e);
