@@ -12,17 +12,16 @@ program
   .option('-e, --end <number>', 'Number to count to, defaults to 100', Number)
   .parse(process.argv);
 
-if(isNaN(program.start)) {
+if(isNaN(program.start) && program.start !== undefined) {
   console.error('Invalid arguments, expected starting number');
   console.error('found: ' + program.start);
   process.exit(1);
 }
-if(isNaN(program.end)) {
+if(isNaN(program.end) && program.end !== undefined) {
   console.error('Invalid arguments, expected ending number');
   console.error('found: ' + program.end);
   process.exit(1);
 }
-
 
 var s = program.start || 1
   , e = program.end || 100;
@@ -42,4 +41,4 @@ if (semver.gt(process.version.replace('v', ''), '0.11.0')) {
   fizzbuzz = require('../lib/standard');
 }
 
-fizzbuzz(s, e);
+fizzbuzz(s, e, console.log);
