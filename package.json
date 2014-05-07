@@ -29,5 +29,8 @@
   "dependencies": {
     "commander": "^2.2.0",
     "semver": "~2.2.1"
+  },
+  "devDependencies": {
+    "should": "^3.3.1"
   }
 }
