@@ -1,6 +1,6 @@
 {
   "name": "interview",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A collection of command line tools for snarky answers to generic interview questions",
   "main": "bin/fizzbuzz",
   "bin": {
@@ -9,7 +9,7 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --harmony"
   },
   "repository": {
     "type": "git",
