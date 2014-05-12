@@ -1,11 +1,12 @@
 {
   "name": "interview",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "A collection of command line tools for snarky answers to generic interview questions",
   "main": "bin/fizzbuzz",
   "bin": {
     "fizz": "bin/fizzbuzz",
-    "fizzbuzz": "bin/fizzbuzz"
+    "fizzbuzz": "bin/fizzbuzz",
+    "strrev": "bin/strrev"
   },
   "preferGlobal": true,
   "scripts": {
