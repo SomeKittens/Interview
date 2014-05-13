@@ -2,11 +2,26 @@
 
 'use strict';
 
-var toReverse = process.argv
-                            .slice(2)
-                            .join(' ')
-                            .split('')
-                            .reverse()
-                            .join('');
+var program = require('commander')
+  , version = require('../package.json').version;
 
-console.log(toReverse);
+program
+  .version(version)
+  .option('-w, --words', 'Reverse the order of the words')
+  // TODO: .option('Reverse the letters in the words, but not the entire string')
+  .parse(process.argv);
+
+var toReverse = program.args
+  , reversed;
+
+if (program.words) {
+  reversed = [];
+  toReverse.forEach(function(word) {
+    reversed.push(word.split('').reverse().join(''));
+  });
+  reversed = reversed.join(' ');
+} else {
+  reversed = toReverse.join(' ').split('').reverse().join('');
+}
+
+console.log(reversed);
