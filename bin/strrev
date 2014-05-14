@@ -5,10 +5,14 @@
 var program = require('commander')
   , version = require('../package.json').version;
 
+String.prototype.reverse = function() {
+  return this.split('').reverse().join('');
+};
+
 program
   .version(version)
-  .option('-w, --words', 'Reverse the order of the words')
-  // TODO: .option('Reverse the letters in the words, but not the entire string')
+  .option('-w, --words', 'Reverse the letters in the words, but not the entire string')
+  // TODO: .option('-s, --sentence', 'Reverse the order of the words, but not the letters')
   .parse(process.argv);
 
 var toReverse = program.args
@@ -17,11 +21,11 @@ var toReverse = program.args
 if (program.words) {
   reversed = [];
   toReverse.forEach(function(word) {
-    reversed.push(word.split('').reverse().join(''));
+    reversed.push(word.reverse());
   });
   reversed = reversed.join(' ');
 } else {
-  reversed = toReverse.join(' ').split('').reverse().join('');
+  reversed = toReverse.join(' ').reverse();
 }
 
 console.log(reversed);
