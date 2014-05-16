@@ -27,4 +27,24 @@ describe('strrev', function() {
         done();
     });
   });
+  it('uses the -w flag', function(done) {
+    exec('./bin/strrev -w fuzzy kittens',
+      function (err, stdout, stderr) {
+        if (err) { return done(err); }
+        
+        stdout.should.eql('yzzuf snettik\n');
+        stderr.should.eql('');
+        done();
+    });
+  });
+  it('uses the -s flag', function(done) {
+    exec('./bin/strrev -s fuzzy kittens',
+      function (err, stdout, stderr) {
+        if (err) { return done(err); }
+        
+        stdout.should.eql('kittens fuzzy\n');
+        stderr.should.eql('');
+        done();
+    });
+  });
 });

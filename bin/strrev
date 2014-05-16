@@ -12,7 +12,7 @@ String.prototype.reverse = function() {
 program
   .version(version)
   .option('-w, --words', 'Reverse the letters in the words, but not the entire string')
-  // TODO: .option('-s, --sentence', 'Reverse the order of the words, but not the letters')
+  .option('-s, --sentence', 'Reverse the order of the words, but not the letters')
   .parse(process.argv);
 
 var toReverse = program.args
@@ -24,6 +24,8 @@ if (program.words) {
     reversed.push(word.reverse());
   });
   reversed = reversed.join(' ');
+} else if (program.sentence) {
+  reversed = toReverse.reverse().join(' ');
 } else {
   reversed = toReverse.join(' ').reverse();
 }
