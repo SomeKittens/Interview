@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var num = process.argv[2]
+  , prime = true;
+
+for (var i = 2; i < num; i++) {
+  if (num % i === 0) {
+    prime = false;
+    break;
+  }
+}
+
+console.log(prime);
