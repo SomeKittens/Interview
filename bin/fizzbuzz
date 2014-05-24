@@ -10,6 +10,7 @@ program
   .version(version)
   .option('-s, --start <number>', 'Number to start with, defaults to 1', Number)
   .option('-e, --end <number>', 'Number to count to, defaults to 100', Number)
+  .option('-p, --prime', 'also output \'prime\' on prime numbers')
   .parse(process.argv);
 
 if(isNaN(program.start) && program.start !== undefined) {
@@ -24,7 +25,8 @@ if(isNaN(program.end) && program.end !== undefined) {
 }
 
 var s = program.start || 1
-  , e = program.end || 100;
+  , e = program.end || 100
+  , prime = program.prime;
 
 if (e <= s) {
   console.error('Invalid arguments, expected start number greater than end');
@@ -33,7 +35,12 @@ if (e <= s) {
   process.exit(1);
 }
 
-var fizzbuzz;
+var fizzbuzz
+  , config = {
+    s: s,
+    e: e,
+    p: prime
+  };
 
 if (semver.gt(process.version.replace('v', ''), '0.11.0')) {
   fizzbuzz = require('../lib/yield');
@@ -41,4 +48,4 @@ if (semver.gt(process.version.replace('v', ''), '0.11.0')) {
   fizzbuzz = require('../lib/standard');
 }
 
-fizzbuzz(s, e, console.log);
+fizzbuzz(config, console.log);
