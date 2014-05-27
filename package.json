@@ -1,6 +1,6 @@
 {
   "name": "interview",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "A collection of command line tools for snarky answers to generic interview questions",
   "main": "bin/fizzbuzz",
   "bin": {
