@@ -7,7 +7,8 @@
     "fizz": "bin/fizzbuzz",
     "fizzbuzz": "bin/fizzbuzz",
     "strrev": "bin/strrev",
-    "prime": "bin/prime"
+    "prime": "bin/prime",
+    "fib": "bin/fib"
   },
   "preferGlobal": true,
   "scripts": {

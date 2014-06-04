@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var program = require('commander')
+  , version = require('../package.json').version;
+  
+var parseSeed = function(input) {
+  var nums = input.split(',');
+  nums = nums.map(Number);
+  if (nums.length !== 2 || isNaN(nums[0]) || isNaN(nums[1])) {
+    console.error('--seed expects two comma separated numbers');
+    console.error('For example, 2,7 or 1,1');
+    console.error('You entered ' + input);
+    process.exit(1);
+  }
+  return nums;
+};
+
+var parseCycles = function(input) {
+  var nInput = Number(input);
+  if (isNaN(nInput)) {
+    console.error('--cycles expects a number');
+    process.exit(1);
+  }
+  return nInput;
+};
+
+program
+  .version(version)
+  .option('-s, --seed <seeds>', 'First two numbers of the sequence (comma separated)', parseSeed)
+  .option('-c, --cycles <cycles>', 'Number of Fibonacci numbers to compute', parseCycles)
+  .parse(process.argv);
+
+var countTo = (program.cycles - 2) || 8
+  , prev
+  , doublePrev
+  , current;
+
+if (program.seed) {
+  doublePrev = program.seed[0];
+  prev = program.seed[1];
+} else {
+  prev = 1;
+  doublePrev = 0;
+}
+ 
+console.log(doublePrev);
+console.log(prev);
+
+while (countTo--) {
+  current = prev + doublePrev;
+  console.log(current);
+  doublePrev = prev;
+  prev = current;
+}
