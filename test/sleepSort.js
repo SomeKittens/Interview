@@ -40,4 +40,17 @@ describe('sorts by sleeping!', function() {
       done();
     });
   });
+  
+  it('should stop processing after finding an error', function(done) {
+    sleepSort([671, 'bananas', 999], function(err, sortedArr) {
+      (err === null).should.be.false;
+      err.should.be.an.Error;
+      (sortedArr === undefined).should.be.true;
+
+      err.message.should.be.ok;
+      err.message.should.eql('Bad data at array index 1');
+      
+      done();
+    });
+  });
 });

@@ -66,12 +66,18 @@ describe('fizzbuzz', function() {
         }
       });
       it('can also display primes', function() {
-        standardFizz({s: 1, e: 100, p: true}, addToResults);
+        yieldFizz({s: 1, e: 100, p: true}, addToResults);
 
         results.length.should.eql(100);
         for (var i = 0; i < 100; i++) {
           results[i].should.eql(oneto100p[i]);
         }
+      });
+      it('will give an error with an incorrect starting point', function() {
+        yieldFizz({s: 2, e: 100}, function() {}, addToResults);
+        
+        results.length.should.eql(1);
+        results[0].should.eql('Yield method only works with numbers in the sequence 1, 4, 7...');
       });
     });
     

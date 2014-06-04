@@ -1,7 +1,5 @@
 'use strict';
 
-console.log(__dirname);
-
 require('should');
 
 var exec = require('child_process').exec;

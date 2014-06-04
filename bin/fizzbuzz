@@ -42,10 +42,15 @@ var fizzbuzz
     p: prime
   };
 
+var handleError = function(errMsg) {
+  console.error(errMsg);
+  process.exit(1);
+}
+
 if (semver.gt(process.version.replace('v', ''), '0.11.0')) {
   fizzbuzz = require('../lib/yield');
 } else {
   fizzbuzz = require('../lib/standard');
 }
 
-fizzbuzz(config, console.log);
+fizzbuzz(config, console.log, handleError);

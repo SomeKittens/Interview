@@ -6,4 +6,7 @@ http://programmers.stackexchange.com/questions/68980/interesting-variations-of-f
 https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions
 http://en.wikipedia.org/wiki/Fizz_buzz#Variations
 
-Also find common characters in a string
+Find common characters in a string
+
+large array of numbers that can repeat and are not sorted
+find first pair of numbers that sums to given integer

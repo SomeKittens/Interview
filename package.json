@@ -1,6 +1,6 @@
 {
   "name": "interview",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "description": "A collection of command line tools for snarky answers to generic interview questions",
   "main": "bin/fizzbuzz",
   "bin": {
@@ -12,7 +12,8 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "test": "mocha --harmony"
+    "test": "mocha --harmony -R nyan",
+    "cover": "node --harmony node_modules/istanbul/lib/cli.js cover _mocha -- -R nyan"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "keywords": [
     "fizzbuzz",
     "snark",
-    "interview"
+    "interview",
+    "Fibonacci"
   ],
   "author": "Randall Koutnik <rkoutnik@gmail.com>",
   "license": "MIT",
@@ -30,10 +32,11 @@
   },
   "homepage": "https://github.com/SomeKittens/Interview",
   "dependencies": {
-    "commander": "^2.2.0",
+    "commander": "2.2.0",
     "semver": "~2.2.1"
   },
   "devDependencies": {
-    "should": "^3.3.1"
+    "should": "4.0.x",
+    "istanbul": "git://github.com/gotwarlost/istanbul.git#harmony"
   }
 }
