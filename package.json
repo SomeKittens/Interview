@@ -1,6 +1,6 @@
 {
   "name": "interview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A collection of command line tools for snarky answers to generic interview questions",
   "main": "bin/fizzbuzz",
   "bin": {
@@ -8,7 +8,8 @@
     "itv-fizzbuzz": "bin/fizzbuzz",
     "itv-strrev": "bin/strrev",
     "itv-prime": "bin/prime",
-    "itv-fib": "bin/fib"
+    "itv-fib": "bin/fib",
+    "itv-anagrams": "bin/anagrams"
   },
   "preferGlobal": true,
   "scripts": {

@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+'use strict';
+
+String.prototype.sort = function() {
+  return this.split('').sort().join('');
+};
+
+var program = require('commander')
+  , version = require('../package.json').version;
+  
+program
+  .version(version)
+//TODO  .option('-f, --file', 'Parameter is a CSV file')
+  .parse(process.argv);
+
+if (!program.args || !program.args.length) {
+  console.error('No dictionary provided');
+  process.exit(1);
+}
+
+var dict = program.args[0].split(',');
+
+dict = dict.map(function(word) {
+  return word.sort();
+});
+dict = dict.sort();
+
+var anagrams = 0
+  , currentAnagramRun = 0;
+  
+dict.forEach(function(word, idx, dict) {
+  // Last item
+  if (idx + 1 === dict.length) { return; }
+  
+  if (word === dict[idx + 1]) {
+    currentAnagramRun += 1;
+    anagrams += currentAnagramRun;
+  } else {
+    currentAnagramRun = 0;
+  }
+});
+
+console.log('Anagrams found: ' + anagrams);
