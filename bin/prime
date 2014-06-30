@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var program = require('commander')
+  , version = require('../package.json').version;
+
+var isPrime = require('../lib/prime');
+
+program
+  .version(version)
+  .parse(process.argv);
+  
+if (!program.args || !program.args.length) {
+  console.error('No number provided');
+  process.exit(1);
+}
+
+var number = Number(program.args[0]);
+
+if (isNaN(number)) {
+  console.error('Expected number, got ' + program.args[0]);
+  process.exit(1);
+}
+
+if (isPrime(number)) {
+  console.log(number + ' is prime');
+} else {
+  console.log(number + ' is not prime');
+}
