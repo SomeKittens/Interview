@@ -1,4 +1,10 @@
-For snarky answers to generic interview questions
+For snarky answers to generic interview questions.
+
+Included:
+FizzBuzz
+Prime Number Checker
+Anagram checker
+String reversal
 
 TODO:
 
