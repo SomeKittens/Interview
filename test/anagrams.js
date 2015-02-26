@@ -40,7 +40,7 @@ describe('anagrams', function() {
     });
   });
   
-  it('should not find anagrams where none are provicded', function(done) {
+  it('should not find anagrams where none are provided', function(done) {
     exec('./bin/anagrams cat,dog,kitty,puppy',
       function (err, stdout, stderr) {
         if (err) { return done(err); }
